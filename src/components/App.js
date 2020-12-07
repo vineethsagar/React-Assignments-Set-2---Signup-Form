@@ -76,56 +76,56 @@ const App = () => {
   };
   return (
     <div id="main">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            data-testid="name"
-            onChange={handleName}
-          ></input>
-        </label>
-        <label>
-          Email:
-          <input
-            // type="email"
-            value={email}
-            data-testid="email"
-            onChange={handleEmail}
-          ></input>
-        </label>
-        <label>
-          Gender:
-          <input
-            type="text"
-            value={gender}
-            data-testid="gender"
-            onChange={handleGender}
-          ></input>
-        </label>
-        <label>
-          Phone number:
-          <input
-            data-testid="phoneNumber"
-            type="number"
-            value={phoneNumber}
-            onChange={handlePhoneNumber}
-          ></input>
-        </label>
-        <label>
-          Password:
-          <input
-            data-testid="password"
-            type="password"
-            value={password}
-            onChange={handlePassword}
-          />
-        </label>
-        <button data-testid="button" onSubmit={handleSubmit}>
-          button
-        </button>
-      </form>
+      {/* <form onSubmit={handleSubmit}> */}
+      <label>
+        Name:
+        <input
+          type="text"
+          value={name}
+          data-testid="name"
+          onChange={handleName}
+        ></input>
+      </label>
+      <label>
+        Email:
+        <input
+          // type="email"
+          value={email}
+          data-testid="email"
+          onChange={handleEmail}
+        ></input>
+      </label>
+      <label>
+        Gender:
+        <input
+          type="text"
+          value={gender}
+          data-testid="gender"
+          onChange={handleGender}
+        ></input>
+      </label>
+      <label>
+        Phone number:
+        <input
+          data-testid="phoneNumber"
+          type="number"
+          value={phoneNumber}
+          onChange={handlePhoneNumber}
+        ></input>
+      </label>
+      <label>
+        Password:
+        <input
+          data-testid="password"
+          type="password"
+          value={password}
+          onChange={handlePassword}
+        />
+      </label>
+      <button data-testid="button" onClick={handleSubmit}>
+        button
+      </button>
+      {/* </form> */}
       <h3>{errorMessage}</h3>
       <h3>{welcomeMessage}</h3>
     </div>
