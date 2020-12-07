@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import "../styles/App.css";
-import Form from "./Form";
+
 const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,15 +20,17 @@ const App = () => {
     setGender(event.target.value);
   };
   const handlePassword = (event) => {
-    setPhonenumber(event.target.value);
+    setPassword(event.target.value);
   };
   const handlePhoneNumber = (event) => {
-    setPassword(event.target.value);
+    setPhonenumber(event.target.value);
   };
 
   const handleSubmit = (event) => {
+    console.log("sumbit");
     event.preventDefault();
     setWelcomeMessage("");
+    setErrorMessage("");
     if (!name || !email || !gender || !phoneNumber || !password) {
       setErrorMessage("All fields are mandatory");
       return;
@@ -77,12 +79,18 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type="text" data-testid="name" onChange={handleName}></input>
+          <input
+            type="text"
+            value={name}
+            data-testid="name"
+            onChange={handleName}
+          ></input>
         </label>
         <label>
           Email:
           <input
-            type="email"
+            // type="email"
+            value={email}
             data-testid="email"
             onChange={handleEmail}
           ></input>
@@ -91,23 +99,32 @@ const App = () => {
           Gender:
           <input
             type="text"
+            value={gender}
             data-testid="gender"
             onChange={handleGender}
           ></input>
         </label>
         <label>
           Phone number:
-          <input data-testid="phoneNumber" onChange={handlePhoneNumber}></input>
+          <input
+            data-testid="phoneNumber"
+            type="number"
+            value={phoneNumber}
+            onChange={handlePhoneNumber}
+          ></input>
         </label>
         <label>
           Password:
           <input
             data-testid="password"
             type="password"
+            value={password}
             onChange={handlePassword}
           />
         </label>
-        <button data-testid="button">button</button>
+        <button data-testid="button" onSubmit={handleSubmit}>
+          button
+        </button>
       </form>
       <h3>{errorMessage}</h3>
       <h3>{welcomeMessage}</h3>
